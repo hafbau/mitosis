@@ -3,4 +3,4 @@
 
 ## Component Diagram
 
-[Component Diagram](./mitos.is.svg)
+![alt Component Diagram](./mitos.is.svg)
