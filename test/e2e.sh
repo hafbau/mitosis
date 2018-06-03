@@ -52,7 +52,7 @@ set -x
 # Go to root
 cd ..
 root_path=$PWD
-mitosis="${root_path}/index.js"
+mitosis="${root_path}/main.js"
 
 # ******************************************************************************
 # Test --scripts-version with a distribution tag

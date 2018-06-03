@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><title>core/README</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="core/README"><meta name="groc-project-path" content="core/README.md"><meta name="groc-github-url" content="git+https://github.com/hafbau/mitosis.git"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="git+https://github.com/hafbau/mitosis.git/blob/master/core/README.md">core/README.md</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="core">Core</h1>
+<ul>
+<li>Gets configuration from Input system</li>
+<li>Picks assets (shell and components) based on configuration input from the Assets system</li>
+<li>Sends signal to generate asset if needed</li>
+<li>Integrates picked components into the picked shell</li>
+<li>Returns application source code</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> input = {
+    <span class="hljs-string">"appPath"</span>: <span class="hljs-string">"/home/user/myApp"</span>
+}
+<span class="hljs-keyword">const</span> output = core(input);
+
+<span class="hljs-built_in">console</span>.log(output); <span class="hljs-comment">// '/tmp/myApp'</span></code></pre>
+<h2 id="input">Input</h2>
+<pre><code>- type: JSON
+- properties:
+    + appPath
+        - description: absolute path of the application
+        - type: string</code></pre>
+<h2 id="output">Output</h2>
+<p>Returns a <tt>string</tt> that points to the temporary path holding the generated app&#39;s source code.</p></div></div></div></div></body></html>

@@ -1,0 +1,29 @@
+{
+  "name": "mitosis",
+  "version": "0.0.1",
+  "description": "Prototype generator.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "eslint": "^4.19.1",
+    "fs-extra": "^6.0.1"
+  },
+  "devDependencies": {
+    "groc": "^0.8.0"
+  },
+  "scripts": {
+    "test": "./test/e2e.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hafbau/mitosis.git"
+  },
+  "author": "Hafiz Suara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hafbau/mitosis/issues"
+  },
+  "homepage": "https://github.com/hafbau/mitosis#readme"
+}

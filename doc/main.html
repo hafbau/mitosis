@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><title>main</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="main"><meta name="groc-project-path" content="main.js"><meta name="groc-github-url" content="git+https://github.com/hafbau/mitosis.git"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="git+https://github.com/hafbau/mitosis.git/blob/master/main.js">main.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Makes the script crash on unhandled rejections instead of silently
+ignoring them. In the future, promise rejections that are not handled will
+terminate the Node.js process with a non-zero exit code.</p></div></div><div class="code"><div class="wrapper">process.on(<span class="hljs-string">'unhandledRejection'</span>, err =&gt; {
+    <span class="hljs-keyword">throw</span> err;
+});
+
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">const</span> chalk = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chalk'</span>);
+
+<span class="hljs-keyword">const</span> appName = process.argv[<span class="hljs-number">2</span>];
+<span class="hljs-keyword">const</span> appParentDir = process.cwd();
+<span class="hljs-keyword">const</span> appPath = path.join(appParentDir, appName);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Copy the files for the user</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">const</span> templatePath = path.join(__dirname, <span class="hljs-string">'assets_system/templates'</span>);
+<span class="hljs-keyword">if</span> (fs.existsSync(templatePath)) {
+    fs.copySync(templatePath, appPath);
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.error(
+        <span class="hljs-string">`Could not locate supplied template: <span class="hljs-subst">${chalk.green(templatePath)}</span>`</span>
+    );
+    <span class="hljs-keyword">return</span>;
+}</div></div></div></div></body></html>

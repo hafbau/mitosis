@@ -1,0 +1,6 @@
+{
+    "glob": ["./*.js", "./README.md"
+        , "./core/*.js", "./core/README.md"
+    ],
+    "repository-url": "git+https://github.com/hafbau/mitosis.git"
+}
