@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><title>core/integrator</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="core/integrator"><meta name="groc-project-path" content="core/integrator.js"><meta name="groc-github-url" content="git+https://github.com/hafbau/mitosis.git"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="git+https://github.com/hafbau/mitosis.git/blob/master/core/integrator.js">core/integrator.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="integrator">Integrator</h1>
+<p>This module exports a singleton.
+Public instance methods are:</p>
+<ul>
+<li>init: initializes the instance with a string representing the app name. Returns <code>this</code>.</li>
+<li>integrate: takes an array of strings representing the components paths to be integrated into the app. Returns <code>this</code>.</li>
+<li>into: specifies path to the architeure templates to be used for creating where the components are to be integrated into. Returns a string representing a temporary path to the new integrated app.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>);
+<span class="hljs-keyword">const</span> chalk = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chalk'</span>);
+<span class="hljs-keyword">const</span> tmp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'tmp'</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Integrator</span> </span>{
+    init(appName) {
+        <span class="hljs-keyword">this</span>.appName = appName;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    integrate(components) {
+        <span class="hljs-keyword">this</span>.components = components;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    into(templatePath) {
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">const</span> tempAppObj = getTemporaryDirectory();
+            <span class="hljs-keyword">if</span> (fs.existsSync(templatePath)) {
+                fs.copySync(templatePath, tempAppObj.name);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO: Add components to template</p></div></div><div class="code"><div class="wrapper">                <span class="hljs-keyword">return</span> tempAppObj.name;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">console</span>.error(
+                    <span class="hljs-string">`Could not locate supplied template: <span class="hljs-subst">${chalk.green(templatePath)}</span>`</span>
+                );
+            }
+        } <span class="hljs-keyword">catch</span> (e) {
+            <span class="hljs-built_in">console</span>.error(
+                <span class="hljs-string">'Could not integrate into provided template:'</span>,
+                chalk.green(templatePath),
+                e
+            );
+            <span class="hljs-keyword">return</span>;
+        }
+    }
+}
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-keyword">new</span> Integrator();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="helpers">Helpers</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTemporaryDirectory</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> tmp.dirSync({</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Unsafe cleanup lets us recursively delete the directory if it contains
+contents; by default it only allows removal if it&#39;s empty</p></div></div><div class="code"><div class="wrapper">        unsafeCleanup: <span class="hljs-literal">true</span>
+    });
+}</div></div></div></div></body></html>
