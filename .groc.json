@@ -1,6 +1,10 @@
 {
-    "glob": ["./*.js", "./README.md"
-        , "./core/*.js", "./core/README.md"
+    "glob": [
+        "./*.js", "./README.md",
+        "./core/*.js", "./core/README.md",
+        "./input_system/*.js", "./input_system/README.md",
+        "./output_system/*.js", "./output_system/README.md"
     ],
-    "repository-url": "git+https://github.com/hafbau/mitosis.git"
+    "repository-url": "git+https://github.com/hafbau/mitosis.git",
+    "github": true
 }

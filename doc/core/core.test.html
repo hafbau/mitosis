@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><title>core/core.test</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="core/core.test"><meta name="groc-project-path" content="core/core.test.js"><meta name="groc-github-url" content="git+https://github.com/hafbau/mitosis.git"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="git+https://github.com/hafbau/mitosis.git/blob/master/core/core.test.js">core/core.test.js</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>eslint-disable </p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">const</span> expect = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chai'</span>).expect;
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+<span class="hljs-keyword">const</span> core = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./index'</span>);
+<span class="hljs-keyword">const</span> appInfo = {
+    appName: <span class="hljs-string">'myFrigginApp'</span>,
+    appPath: path.join(process.cwd(), <span class="hljs-string">'myFrigginApp'</span>)
+};
+<span class="hljs-keyword">const</span> templateInfo = {
+    templatePath: path.resolve(<span class="hljs-string">'./assets_system/templates'</span>),
+    componentsPaths: <span class="hljs-literal">undefined</span>
+};
+
+
+describe(<span class="hljs-string">'Core: Given valid inputs'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> output;
+
+    it(<span class="hljs-string">'should return temporary app path and user provided path'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        output = core(appInfo, templateInfo);
+        expect(output.tempAppPath).to.not.be.undefined;
+        expect(output.appPath).to.equal(appInfo.appPath);
+        done();
+    })
+
+    it(<span class="hljs-string">'output should contain api'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-keyword">const</span> hasApi = fs.existsSync(
+            path.join(output.tempAppPath, <span class="hljs-string">'api'</span>)
+        );
+        expect(hasApi).to.be.true;
+        done();
+    })
+
+    it(<span class="hljs-string">'output should contain gui'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-keyword">const</span> hasGui = fs.existsSync(
+            path.join(output.tempAppPath, <span class="hljs-string">'gui'</span>)
+        );
+        expect(hasGui).to.be.true;
+        done();
+    })
+})</div></div></div></div></body></html>

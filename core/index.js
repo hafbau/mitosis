@@ -1,14 +1,22 @@
 'use strict';
 
-// # Picker
+// # Core/index
 
-// ## Input
-//     - type: JSON
-//     - properties:
-//         + appPath
-//             - description: absolute path of the application
-//             - type: string
+const integrator = require('./integrator');
 
-module.exports = function picker(input) {
-    return input;
+module.exports = function core(
+    {
+        appName,
+        appPath
+    }, {
+        templatePath,
+        componentsPaths
+    }) {
+    // integrate component into appropriate architectureTemplates
+    const tempAppPath = integrator
+        .init(appName)    
+        .integrate(componentsPaths)
+        .into(templatePath);
+    
+    return { tempAppPath, appPath };
 };

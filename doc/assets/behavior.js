@@ -17,41 +17,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "projectPath": "README.md",
         "targetPath": "index",
         "pageTitle": "index",
-        "firstHeader": {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "mitosis",
-            "slug": "mitosis",
-            "isFileHeader": true
-          },
-          "depth": 1,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Component Diagram",
-                "slug": "component-diagram"
-              },
-              "depth": 2
-            }
-          ]
-        },
-        "title": "mitosis"
+        "title": "index"
       },
-      "depth": 1,
-      "outline": [
-        {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Component Diagram",
-            "slug": "component-diagram"
-          },
-          "depth": 2
-        }
-      ]
+      "depth": 1
     }, {
       "type": "folder",
       "data": {
@@ -151,6 +119,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "JavaScript"
             },
+            "sourcePath": "/Users/hafizsuara/Projects/mitosis/core/core.test.js",
+            "projectPath": "core/core.test.js",
+            "targetPath": "core/core.test",
+            "pageTitle": "core/core.test",
+            "title": "core.test"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
             "sourcePath": "/Users/hafizsuara/Projects/mitosis/core/index.js",
             "projectPath": "core/index.js",
             "targetPath": "core/index",
@@ -163,8 +151,38 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Picker",
-                "slug": "picker"
+                "title": "Core/index",
+                "slug": "coreindex"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/hafizsuara/Projects/mitosis/core/integrator.js",
+            "projectPath": "core/integrator.js",
+            "targetPath": "core/integrator",
+            "pageTitle": "core/integrator",
+            "title": "integrator"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Integrator",
+                "slug": "integrator"
               },
               "depth": 1,
               "children": [
@@ -172,12 +190,52 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Input",
-                    "slug": "input"
+                    "title": "Helpers",
+                    "slug": "helpers"
                   },
                   "depth": 2
                 }
               ]
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "input_system",
+        "title": "input_system"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/hafizsuara/Projects/mitosis/input_system/index.js",
+            "projectPath": "input_system/index.js",
+            "targetPath": "input_system/index",
+            "pageTitle": "input_system/index",
+            "title": "index"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Input System",
+                "slug": "input-system"
+              },
+              "depth": 1
             }
           ]
         }
@@ -202,6 +260,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       },
       "depth": 1,
       "outline": []
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "output_system",
+        "title": "output_system"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/hafizsuara/Projects/mitosis/output_system/index.js",
+            "projectPath": "output_system/index.js",
+            "targetPath": "output_system/index",
+            "pageTitle": "output_system/index",
+            "title": "index"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Output System",
+                "slug": "output-system"
+              },
+              "depth": 1
+            }
+          ]
+        }
+      ]
     }
   ];
 

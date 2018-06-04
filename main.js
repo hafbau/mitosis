@@ -7,21 +7,14 @@ process.on('unhandledRejection', err => {
     throw err;
 });
 
-const fs = require('fs-extra');
 const path = require('path');
-const chalk = require('chalk');
-
-const appName = process.argv[2];
-const appParentDir = process.cwd();
-const appPath = path.join(appParentDir, appName);
+const getInput = require('./input_system');
+const saveOutput = require('./output_system');
+const core = require('./core');
 
 // Copy the files for the user
 const templatePath = path.join(__dirname, 'assets_system/templates');
-if (fs.existsSync(templatePath)) {
-    fs.copySync(templatePath, appPath);
-} else {
-    console.error(
-        `Could not locate supplied template: ${chalk.green(templatePath)}`
-    );
-    return;
-}
+
+saveOutput(
+    core(getInput(), { templatePath })
+);
