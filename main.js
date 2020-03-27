@@ -10,11 +10,11 @@ process.on('unhandledRejection', err => {
 const path = require('path');
 const getInput = require('./input_system');
 const saveOutput = require('./output_system');
-const core = require('./core');
+const createApp = require('./core');
 
 // Copy the files for the user
 const templatePath = path.join(__dirname, 'assets_system/templates');
 
 saveOutput(
-    core(getInput(), { templatePath })
+    createApp(getInput(), { templatePath })
 );

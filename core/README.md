@@ -7,10 +7,12 @@
 
 ## Example
 ```js
-const input = {
-    "appPath": "/home/user/myApp"
+const appInfo = {
+    "appPath": "/home/user/myApp",
+    "appName": "MyApp"
 }
-const output = core(input);
+
+const output = core(appInfo);
 
 console.log(output); // '/tmp/myApp'
 ```

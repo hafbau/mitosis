@@ -10,7 +10,8 @@
     "assets_system": "assets_system"
   },
   "dependencies": {
-    "fs-extra": "^6.0.1"
+    "fs-extra": "^6.0.1",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -20,7 +21,7 @@
   },
   "scripts": {
     "test-e2e": "./test/e2e.sh",
-    "test": "mocha"
+    "test": "mocha --watch"
   },
   "repository": {
     "type": "git",

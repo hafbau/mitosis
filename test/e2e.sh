@@ -47,7 +47,7 @@ trap 'set +x; handle_error $LINENO $BASH_COMMAND' ERR
 trap 'set +x; handle_exit' SIGQUIT SIGTERM SIGINT SIGKILL SIGHUP
 
 # Echo every command being executed
-set -x
+# set -x
 
 # Go to root
 cd ..
@@ -65,3 +65,5 @@ cd test-app
 # Check corresponding top level folders are created.
 exists api
 exists gui
+
+handle_exit
